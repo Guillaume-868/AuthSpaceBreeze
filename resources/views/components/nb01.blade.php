@@ -1,0 +1,2 @@
+<span class="text-center uppercase bg-[#0B0D17] text-gray-400 text-lg md:text-2xl mt-5">01</span>
+
