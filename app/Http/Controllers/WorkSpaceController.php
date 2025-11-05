@@ -57,6 +57,8 @@ class WorkSpaceController extends Controller
     // Crew / Equipage
     public function showCrew($id)
     {
+        // Ce dd permet de savoir si ma route est bien fonctionnelle (méthode showCrew).
+        // dd("toto");
         $crew = Crew::selectLocalized()->findOrFail($id);
 
         // var_dump($crew);
