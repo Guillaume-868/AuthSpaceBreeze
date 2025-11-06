@@ -12,6 +12,6 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.app');
+        return view('components.app'); // <--- c'est ici qu'il faut mettre le composant
     }
 }
