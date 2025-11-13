@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('description_en');
             $table->string('subtitle_fr',20);
             $table->string('subtitle_en',20);
-            $table->string('launcher_fr',20);
-            $table->string('launcher_en',20);
+            $table->string('launcher_fr',20)-> nullable();
+            $table->string('launcher_en',20)->nullable();
         });
     }
 

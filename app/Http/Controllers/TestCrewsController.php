@@ -82,6 +82,6 @@ class TestCrewsController extends Controller
     public function destroy(Crew $crew)
     {
         $crew->delete();
-        return redirect()->route('planets.index')->with('success', '🚀 Planète supprimée avec succès !');
+        return redirect()->route('crews.index')->with('success', '🚀 Equipage supprimé avec succès !');
     }
 }

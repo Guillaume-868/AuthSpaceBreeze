@@ -6,7 +6,7 @@
     <!-- Bouton d’ajout -->
     <a href="{{ route($createRoute) }}"
         class="ml-10 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded mb-4 inline-block">
-        + Add {{ $type === 'planets' ? 'Planet' : ($type === 'crews' ? 'Crew' : 'Item') }}
+        + Add {{ $type === 'planets' ? 'Planet' : ($type === 'crews' ? 'Crew' : 'Technology') }}
     </a>
 
     <!-- Tableau anglais uniquement -->
