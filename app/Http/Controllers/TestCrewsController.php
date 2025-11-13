@@ -18,8 +18,8 @@ class TestCrewsController extends Controller
             'editRoute' => 'crews.edit',
             'deleteRoute' => 'crews.destroy',
             'fields' => [
-                'fr' => ['fonction_fr' => 'Fonction', 'description_fr' => 'Description', 'meet_fr' => 'Rencontre'],
-                'en' => ['fonction_en' => 'Role', 'description_en' => 'Description', 'meet_en' => 'Meet'],
+                'fr' => ['fonction' => 'Fonction', 'created_at' => 'Crée le', 'updated_at' => 'Mis à jour le'],
+                'en' => ['fonction' => 'Role', 'created_at' => 'Created at', 'updated_at' => 'Update at'],
             ],
             'items' => $items,
             'type' => 'crews', // 👈 ajoute ce paramètre
