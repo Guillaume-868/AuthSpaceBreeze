@@ -32,21 +32,21 @@ class TestCrewsController extends Controller
         return view('Space.Shared.create', ['type' => 'crews']);
     }
 
-    // 💾 Enregistrer une planète
+    // 💾 Enregistrer l'équipage
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'fonction_fr' => 'required|string|max:255',
-            'fonction_en' => 'required|string|max:255',
-            'description_fr' => 'nullable|string',
-            'description_en' => 'nullable|string',
-            'meet_fr' => 'nullable|string',
-            'meet_en' => 'nullable|string',
+            'fonction_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'fonction_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'description_fr' => ['nullable', 'string'],
+            'description_en' => ['nullable', 'string'],
+        ], [
+            'fonction_fr.regex' => 'La fonction française ne doit pas contenir de chiffres.',
+            'fonction_en.regex' => 'La fonction anglaise ne doit pas contenir de chiffres.',
         ]);
-
         // return redirect()->route('planets.index');
 
-        // Crée la planète
+        // Crée l'équipage
         Crew::create($validated);
 
         return redirect()->route('crews.index')->with('success', '✅ Planète créée avec succès !');
@@ -67,10 +67,13 @@ class TestCrewsController extends Controller
     public function update(Request $request, Crew $crew)
     {
         $validated = $request->validate([
-            'fonction_fr' => 'required|string|max:255',
-            'fonction_en' => 'required|string|max:255',
-            'description_fr' => 'nullable|string',
-            'description_en' => 'nullable|string',
+            'fonction_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'fonction_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'description_fr' => ['nullable', 'string'],
+            'description_en' => ['nullable', 'string'],
+        ], [
+            'fonction_fr.regex' => 'La fonction française ne doit pas contenir de chiffres.',
+            'fonction_en.regex' => 'La fonction anglaise ne doit pas contenir de chiffres.',
         ]);
 
         $crew->update($validated);

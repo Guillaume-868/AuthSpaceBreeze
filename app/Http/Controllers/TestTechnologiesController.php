@@ -37,12 +37,17 @@ class TestTechnologiesController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'starships_fr' => 'required|string|max:255',
-            'starships_en' => 'required|string|max:255',
-            'description_fr' => 'nullable|string',
-            'description_en' => 'nullable|string',
-            'subtitle_fr' => 'nullable|string',
-            'subtitle_en' => 'nullable|string',
+            'starships_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'starships_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'description_fr' => ['nullable', 'string'],
+            'description_en' => ['nullable', 'string'],
+            'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // interdit les chiffres si rempli
+            'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // idem
+        ], [
+            'starships_fr.regex' => 'Le nom du vaisseau français ne doit pas contenir de chiffres.',
+            'starships_en.regex' => 'Le nom du vaisseau anglais ne doit pas contenir de chiffres.',
+            'subtitle_fr.regex' => 'Le sous-titre français ne doit pas contenir de chiffres.',
+            'subtitle_en.regex' => 'Le sous-titre anglais ne doit pas contenir de chiffres.',
         ]);
 
         // return redirect()->route('planets.index');
@@ -68,12 +73,17 @@ class TestTechnologiesController extends Controller
     public function update(Request $request, Technology $technology)
     {
         $validated = $request->validate([
-            'starships_fr' => 'required|string|max:255',
-            'starships_en' => 'required|string|max:255',
-            'description_fr' => 'nullable|string',
-            'description_en' => 'nullable|string',
-            'subtitle_fr' => 'nullable|string',
-            'subtitle_en' => 'nullable|string',
+            'starships_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'starships_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
+            'description_fr' => ['nullable', 'string'],
+            'description_en' => ['nullable', 'string'],
+            'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // interdit les chiffres si rempli
+            'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // idem
+        ], [
+            'starships_fr.regex' => 'Le nom du vaisseau français ne doit pas contenir de chiffres.',
+            'starships_en.regex' => 'Le nom du vaisseau anglais ne doit pas contenir de chiffres.',
+            'subtitle_fr.regex' => 'Le sous-titre français ne doit pas contenir de chiffres.',
+            'subtitle_en.regex' => 'Le sous-titre anglais ne doit pas contenir de chiffres.',
         ]);
 
         $technology->update($validated);
