@@ -53,6 +53,17 @@ class TestTechnologiesController extends Controller
         return redirect()->route('technologies.index')->with('success', '✅ Technologie créée avec succès !');
     }
 
+       // ✏️ Formulaire d’édition
+       public function edit(Technology $technology)
+       {
+           return view('Space.Shared.edit', [
+               'item' => $technology,
+               'type' => 'technologies',
+               'updateRoute' => 'technologies.update',
+               'title' => 'Modifier une Technologie',
+           ]);
+       }
+
     // 🔁 Mettre à jour une planète
     public function update(Request $request, Technology $technology)
     {
@@ -69,4 +80,11 @@ class TestTechnologiesController extends Controller
 
         return redirect()->route('technologies.index')->with('success', ' Technologie mise à jour avec succès !');
     }
+
+     // 🗑️ Supprimer
+     public function destroy(Technology $technology)
+     {
+         $technology->delete();
+         return redirect()->route('technologies.index')->with('success', 'Technologie supprimée avec succès !');
+     }
 }

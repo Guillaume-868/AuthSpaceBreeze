@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="title">
-        {{ $title }} : 
+        {{ $title }} :
         {{ $item->name_fr ?? $item->fonction_fr ?? 'Élément' }}
     </x-slot>
 
     <h1 class="text-3xl font-bold text-center mt-6">
-        {{ $title }} : 
+        {{ $title }} :
         {{ $item->name_fr ?? $item->fonction_fr ?? 'Élément' }}
     </h1>
 
@@ -19,32 +19,42 @@
             <h4 class="mt-5 text-center font-bold">🇫🇷 Français</h4>
 
             @if ($type === 'planets')
-                <input type="text" name="name_fr" value="{{ $item->name_fr }}" required placeholder="Nom (FR)" class="mb-2 mt-4 p-2 border rounded">
-                <input type="text" name="subtitle_fr" value="{{ $item->subtitle_fr }}" placeholder="Sous-titre (FR)" class="mb-2 p-2 border rounded">
-                <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ $item->description_fr }}</textarea>
-                <input type="text" name="distance_fr" value="{{ $item->distance_fr ?? '' }}" placeholder="Distance (FR)" class="mb-2 p-2 border rounded">
-                <input type="text" name="duration_fr" value="{{ $item->duration_fr ?? '' }}" placeholder="Durée (FR)" class="mb-4 p-2 border rounded">
+            <input type="text" name="name_fr" value="{{ $item->name_fr }}" required placeholder="Nom (FR)" class="mb-2 mt-4 p-2 border rounded">
+            <input type="text" name="subtitle_fr" value="{{ $item->subtitle_fr }}" placeholder="Sous-titre (FR)" class="mb-2 p-2 border rounded">
+            <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ $item->description_fr }}</textarea>
+            <input type="text" name="distance_fr" value="{{ $item->distance_fr ?? '' }}" placeholder="Distance (FR)" class="mb-2 p-2 border rounded">
+            <input type="text" name="duration_fr" value="{{ $item->duration_fr ?? '' }}" placeholder="Durée (FR)" class="mb-4 p-2 border rounded">
 
             @elseif ($type === 'crews')
-                <input type="text" name="fonction_fr" value="{{ $item->fonction_fr }}" required placeholder="Fonction (FR)" class="mb-2 mt-4 p-2 border rounded">
-                <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ $item->description_fr }}</textarea>
-                <input type="text" name="meet_fr" value="{{ $item->meet_fr ?? '' }}" placeholder="Rencontre (FR)" class="mb-4 p-2 border rounded">
+            <input type="text" name="fonction_fr" value="{{ $item->fonction_fr }}" required placeholder="Fonction (FR)" class="mb-2 mt-4 p-2 border rounded">
+            <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ $item->description_fr }}</textarea>
+            <input type="text" name="meet_fr" value="{{ $item->meet_fr ?? '' }}" placeholder="Rencontre (FR)" class="mb-4 p-2 border rounded">
+
+            @else
+            <input type="text" name="starships_fr" value="{{ $item->starships_fr }}" required placeholder="Vaisseau (FR)" class="mb-2 mt-4 p-2 border rounded">
+            <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ $item->description_fr }}</textarea>
+            <input type="text" name="subtitle_fr" value="{{ $item->subtitle_fr ?? '' }}" placeholder="Sous titre (FR)" class="mb-4 p-2 border rounded">
             @endif
 
             <!-- 🇬🇧 Section Anglais -->
             <h4 class="mt-5 text-center font-bold">🇬🇧 English</h4>
 
             @if ($type === 'planets')
-                <input type="text" name="name_en" value="{{ $item->name_en }}" required placeholder="Name (EN)" class="mb-2 mt-4 p-2 border rounded">
-                <input type="text" name="subtitle_en" value="{{ $item->subtitle_en }}" placeholder="Subtitle (EN)" class="mb-2 p-2 border rounded">
-                <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ $item->description_en }}</textarea>
-                <input type="text" name="distance_en" value="{{ $item->distance_en ?? '' }}" placeholder="Distance (EN)" class="mb-2 p-2 border rounded">
-                <input type="text" name="duration_en" value="{{ $item->duration_en ?? '' }}" placeholder="Duration (EN)" class="mb-4 p-2 border rounded">
+            <input type="text" name="name_en" value="{{ $item->name_en }}" required placeholder="Name (EN)" class="mb-2 mt-4 p-2 border rounded">
+            <input type="text" name="subtitle_en" value="{{ $item->subtitle_en }}" placeholder="Subtitle (EN)" class="mb-2 p-2 border rounded">
+            <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ $item->description_en }}</textarea>
+            <input type="text" name="distance_en" value="{{ $item->distance_en ?? '' }}" placeholder="Distance (EN)" class="mb-2 p-2 border rounded">
+            <input type="text" name="duration_en" value="{{ $item->duration_en ?? '' }}" placeholder="Duration (EN)" class="mb-4 p-2 border rounded">
 
             @elseif ($type === 'crews')
-                <input type="text" name="fonction_en" value="{{ $item->fonction_en }}" required placeholder="Role (EN)" class="mb-2 mt-4 p-2 border rounded">
-                <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ $item->description_en }}</textarea>
-                <input type="text" name="meet_en" value="{{ $item->meet_en ?? '' }}" placeholder="Meet (EN)" class="mb-4 p-2 border rounded">
+            <input type="text" name="fonction_en" value="{{ $item->fonction_en }}" required placeholder="Role (EN)" class="mb-2 mt-4 p-2 border rounded">
+            <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ $item->description_en }}</textarea>
+            <input type="text" name="meet_en" value="{{ $item->meet_en ?? '' }}" placeholder="Meet (EN)" class="mb-4 p-2 border rounded">
+
+            @else
+            <input type="text" name="starships_en" value="{{ $item->starships_en }}" required placeholder="Starship (EN)" class="mb-2 mt-4 p-2 border rounded">
+            <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ $item->description_fr }}</textarea>
+            <input type="text" name="subtitle_en" value="{{ $item->subtitle_en ?? '' }}" placeholder="Subtitle (EN)" class="mb-4 p-2 border rounded">
             @endif
 
             <div class="text-center mt-4">
