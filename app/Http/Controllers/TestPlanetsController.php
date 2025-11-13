@@ -37,16 +37,19 @@ class TestPlanetsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name_fr' => 'required|string|max:255',
-            'name_en' => 'required|string|max:255',
-            'description_fr' => 'nullable|string',
-            'description_en' => 'nullable|string',
-            'distance_fr' => 'nullable|string',
-            'distance_en' => 'nullable|string',
-            'duration_fr' => 'nullable|string',
-            'duration_en' => 'nullable|string',
-            'subtitle_fr' => 'nullable|string',
-            'subtitle_en' => 'nullable|string',
+            'name_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
+            'name_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
+            'description_fr' => ['nullable'],
+            'description_en' => ['nullable'],
+            'distance_fr' => ['regex:/^[0-9]+$/'],
+            'distance_en' => ['regex:/^[0-9]+$/'],
+            'duration_fr' => ['regex:/^[0-9]+$/'],
+            'duration_en' => ['regex:/^[0-9]+$/'],
+            'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
+            'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
+        ], [
+            'name_fr.regex' => 'Le nom français ne doit pas contenir de chiffres.',
+            'name_en.regex' => 'Le nom anglais ne doit pas contenir de chiffres.',
         ]);
 
         // return redirect()->route('planets.index');
