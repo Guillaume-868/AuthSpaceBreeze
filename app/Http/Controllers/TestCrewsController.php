@@ -51,4 +51,37 @@ class TestCrewsController extends Controller
 
         return redirect()->route('crews.index')->with('success', '✅ Planète créée avec succès !');
     }
+
+    // ✏️ Formulaire d’édition
+    public function edit(Crew $crew)
+    {
+        return view('Space.Shared.edit', [
+            'item' => $crew,
+            'type' => 'crews',
+            'updateRoute' => 'crews.update',
+            'title' => 'Modifier le membre de l’équipage',
+        ]);
+    }
+
+    // 🔁 Mettre à jour un équipage
+    public function update(Request $request, Crew $crew)
+    {
+        $validated = $request->validate([
+            'fonction_fr' => 'required|string|max:255',
+            'fonction_en' => 'required|string|max:255',
+            'description_fr' => 'nullable|string',
+            'description_en' => 'nullable|string',
+        ]);
+
+        $crew->update($validated);
+
+        return redirect()->route('crews.index')->with('success', 'Equipage mis à jour avec succès !');
+    }
+
+    // 🗑️ Supprimer
+    public function destroy(Crew $crew)
+    {
+        $crew->delete();
+        return redirect()->route('planets.index')->with('success', '🚀 Planète supprimée avec succès !');
+    }
 }

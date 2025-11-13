@@ -56,4 +56,43 @@ class TestPlanetsController extends Controller
 
         return redirect()->route('planets.index')->with('success', '✅ Planète créée avec succès !');
     }
+
+    // ✏️ Formulaire d’édition
+    public function edit(Planet $planet)
+    {
+        return view('Space.Shared.edit', [
+            'item' => $planet,
+            'type' => 'planets',
+            'updateRoute' => 'planets.update',
+            'title' => 'Modifier la planète',
+        ]);
+    }
+
+    // 🔁 Mettre à jour une planète
+    public function update(Request $request, Planet $planet)
+    {
+        $validated = $request->validate([
+            'name_fr' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
+            'description_fr' => 'nullable|string',
+            'description_en' => 'nullable|string',
+            'distance_fr' => 'nullable|string',
+            'distance_en' => 'nullable|string',
+            'duration_fr' => 'nullable|string',
+            'duration_en' => 'nullable|string',
+            'subtitle_fr' => 'nullable|string',
+            'subtitle_en' => 'nullable|string',
+        ]);
+
+        $planet->update($validated);
+
+        return redirect()->route('planets.index')->with('success', '🪐 Planète mise à jour avec succès !');
+    }
+
+    // 🗑️ Supprimer
+    public function destroy(Planet $planet)
+    {
+        $planet->delete();
+        return redirect()->route('planets.index')->with('success', '🚀 Planète supprimée avec succès !');
+    }
 }
