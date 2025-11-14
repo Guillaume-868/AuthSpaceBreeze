@@ -41,15 +41,17 @@ class TestPlanetsController extends Controller
             'name_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
             'description_fr' => ['nullable'],
             'description_en' => ['nullable'],
-            'distance_fr' => ['regex:/^[0-9]+$/'],
-            'distance_en' => ['regex:/^[0-9]+$/'],
-            'duration_fr' => ['regex:/^[0-9]+$/'],
-            'duration_en' => ['regex:/^[0-9]+$/'],
+            'distance_fr' => ['string', 'regex:/^[0-9]+$/'],
+            'distance_en' => ['string', 'regex:/^[0-9]+$/'],
+            'duration_fr' => ['string', 'regex:/^[0-9]+$/'],
+            'duration_en' => ['string', 'regex:/^[0-9]+$/'],
             'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
             'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
         ], [
-            'name_fr.regex' => 'Le nom français ne doit pas contenir de chiffres.',
-            'name_en.regex' => 'Le nom anglais ne doit pas contenir de chiffres.',
+            'name_en.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_en.regex' => 'Merci d\'insérer des chiffres',
+            'duration_en.regex' => 'Merci d\'insérer des chiffres',
+            'subtitle_en.regex' => 'Ne peut pas contenir de chiffres',
         ]);
 
         // return redirect()->route('planets.index');
@@ -77,17 +79,23 @@ class TestPlanetsController extends Controller
         $validated = $request->validate([
             'name_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
             'name_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
-            'description_fr' => ['nullable'],
-            'description_en' => ['nullable'],
-            'distance_fr' => ['regex:/^[0-9]+$/'],
-            'distance_en' => ['regex:/^[0-9]+$/'],
-            'duration_fr' => ['regex:/^[0-9]+$/'],
-            'duration_en' => ['regex:/^[0-9]+$/'],
-            'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
-            'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
+            'description_fr' => ['required'],
+            'description_en' => ['required'],
+            'distance_fr' => ['string', 'required'],
+            'distance_en' => ['string', 'required'],
+            'duration_fr' => ['string', 'required'],
+            'duration_en' => ['string', 'required'],
         ], [
-            'name_fr.regex' => 'Le nom français ne doit pas contenir de chiffres.',
-            'name_en.regex' => 'Le nom anglais ne doit pas contenir de chiffres.',
+
+            'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_fr.regex' => 'Merci d\'insérer des chiffres',
+            'duration_fr.regex' => 'Merci d\'insérer des chiffres',
+            'description_fr.regex' => 'Merci d\'ajouter du texte',
+
+            'name_en.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_en.regex' => 'Merci d\'insérer des chiffres',
+            'duration_en.regex' => 'Merci d\'insérer des chiffres',
+            'description_en.regex' => 'Merci d\'ajouter du texte',
         ]);
 
         $planet->update($validated);

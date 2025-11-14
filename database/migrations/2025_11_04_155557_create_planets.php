@@ -16,8 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name_fr',7);
             $table->string('name_en',7);
-            $table->text('description_fr')->nullable();
-            $table->text('description_en')->nullable();
+            $table->text('description_fr');
+            $table->text('description_en');
             $table->string('distance_fr',50);
             $table->string('distance_en',50);
             $table->string('duration_fr',50);
