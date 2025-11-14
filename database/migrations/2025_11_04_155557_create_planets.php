@@ -22,9 +22,6 @@ return new class extends Migration
             $table->string('distance_en',50);
             $table->string('duration_fr',50);
             $table->string('duration_en',50);
-            $table->string('subtitle_fr',50);
-            $table->string('subtitle_en',50);
-
         });
     }
 

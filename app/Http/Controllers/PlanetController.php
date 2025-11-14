@@ -32,8 +32,6 @@ public function store(Request $request)
         'distance_en' => 'nullable|string',
         'duration_fr' => 'nullable|string',
         'duration_en' => 'nullable|string',
-        'subtitle_fr' => 'nullable|string',
-        'subtitle_en' => 'nullable|string',
     ]);
 
     // return redirect()->route('planets.index');
@@ -74,8 +72,6 @@ public function store(Request $request)
             'distance_en' => 'nullable|string',
             'duration_fr' => 'nullable|string',
             'duration_en' => 'nullable|string',
-            'subtitle_fr' => 'nullable|string',
-            'subtitle_en' => 'nullable|string',
         ]);
 
         $planet->update($validated);

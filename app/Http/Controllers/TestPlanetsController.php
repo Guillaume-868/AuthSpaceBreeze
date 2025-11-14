@@ -19,8 +19,8 @@ class TestPlanetsController extends Controller
             'deleteRoute' => 'planets.destroy',
             // Vérifier la correspondance des rubriques / clefs du 'fields' avec la methode selectlocalized du modèle Planet
             'fields' => [
-                'fr' => ['name' => 'Nom', 'subtitle' => 'Sous-titre',  'distance' => 'Distance', 'duration' => 'Durée'],
-                'en' => ['name' => 'Name', 'subtitle' => 'Subtitle', 'distance' => 'Distance', 'duration' => 'Duration'],
+                'fr' => ['name' => 'Nom',  'distance' => 'Distance', 'duration' => 'Durée'],
+                'en' => ['name' => 'Name', 'distance' => 'Distance', 'duration' => 'Duration'],
             ],
             'items' => $items,
             'type' => 'planets', // 👈 ajoute ce paramètre
@@ -45,13 +45,10 @@ class TestPlanetsController extends Controller
             'distance_en' => ['string', 'regex:/^[0-9]+$/'],
             'duration_fr' => ['string', 'regex:/^[0-9]+$/'],
             'duration_en' => ['string', 'regex:/^[0-9]+$/'],
-            'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
-            'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'],
         ], [
             'name_en.regex' => 'Ne doit pas contenir de chiffres.',
             'distance_en.regex' => 'Merci d\'insérer des chiffres',
             'duration_en.regex' => 'Merci d\'insérer des chiffres',
-            'subtitle_en.regex' => 'Ne peut pas contenir de chiffres',
         ]);
 
         // return redirect()->route('planets.index');

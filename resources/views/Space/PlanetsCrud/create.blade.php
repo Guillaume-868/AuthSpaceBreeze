@@ -19,7 +19,6 @@
             <h4 class="mt-5 text-center font-bold">🇬🇧 English</h4>
 
                 <input type="text" name="name_en" placeholder="Name (EN)" required class="form-control mb-2 mt-4">
-                <input type="text" name="subtitle_en" placeholder="Subtitle (EN)" class="form-control mb-2">
                 <input type="text" name="distance_en" placeholder="Distance (EN)" class="form-control mb-2">
                 <input type="text" name="duration_en" placeholder="Duration (EN)" class="form-control mb-4">
                 <textarea name="description_en" placeholder="Description (EN)" class="form-control mb-2 w-80"></textarea>

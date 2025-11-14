@@ -25,8 +25,6 @@ class PlanetFactory extends Factory
             'distance_fr' => '2500 km',
             'duration_fr' => '4 Jours',
             'duration_en' => '7 Days',
-            'subtitle_fr' => 'Notre système solaire',
-            'subtitle_en' => 'our solar system',
             'created_at' => now(),
             'updated_at' => now(),
         ];

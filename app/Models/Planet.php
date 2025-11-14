@@ -20,8 +20,6 @@ class Planet extends Model
         'distance_en',
         'duration_fr',
         'duration_en',
-        'subtitle_fr',
-        'subtitle_en'
     ];
 
     /**
@@ -39,7 +37,6 @@ class Planet extends Model
             "description_{$locale} as description", 
             "distance_{$locale} as distance",
             "duration_{$locale} as duration",
-            "subtitle_{$locale} as subtitle",
             'created_at',
             'updated_at',
         ]);

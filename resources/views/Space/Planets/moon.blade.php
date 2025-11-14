@@ -7,7 +7,7 @@
         <!-- Titre + image à gauche -->
         <div class="flex flex-col items-center w-full lg:w-1/2 gap-6">
             <h3 class="uppercase text-[#ffffff] text-center md:text-2xl md:whitespace-nowrap whitespace-nowrap md:mt-10 text-[#D0D6F9]">
-            {{ $planet->subtitle }}
+            {{__('planet.subtitle')}}
             </h3>
             <img src="{{ asset('images/Phone/moon.png') }}"
                 alt="moon"

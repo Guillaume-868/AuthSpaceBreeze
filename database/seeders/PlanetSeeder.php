@@ -22,8 +22,6 @@ class PlanetSeeder extends Seeder
             'distance_en' => '384000 km',
             'duration_fr' => '3 Jours',
             'duration_en' => '3 Days',
-            'subtitle_fr' => "choisissez votre destination",
-            'subtitle_en' => "choose your destination"
         ]);
     }
 
