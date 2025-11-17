@@ -8,7 +8,7 @@
             <div class="flex flex-row items-center gap-4 bg-[#0B0D17] py-2 justify-center md:justify-start mb-10 lg:mb-20 w-full lg:hidden">
                 <x-nb02 />
                 <h3 class="uppercase text-white text-center md:text-left text-lg md:text-2xl lg:hidden ">
-                {{ $crew->meet }}
+                {{__('crew.subtitle')}}
                 </h3>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <div class="hidden lg:block lg:flex lg:gap-5 lg:mb-30">
                     <x-nb02 />
                     <h3 class="uppercase text-white text-left text-lg md:text-2xl hidden lg:block">
-                    {{ $crew->meet }}
+                    {{__('crew.subtitle')}}
                     </h3>
                 </div>
                

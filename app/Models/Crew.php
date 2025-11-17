@@ -16,8 +16,6 @@ class Crew extends Model
         'fonction_en',
         'description_fr',
         'description_en',
-        'meet_fr',
-        'meet_en'
     ];
 
 
@@ -32,7 +30,6 @@ class Crew extends Model
             'id',
             "fonction_{$locale} as fonction", // ✅ correct
             "description_{$locale} as description",
-            "meet_{$locale} as meet",
             'created_at',
             'updated_at'
         ]);

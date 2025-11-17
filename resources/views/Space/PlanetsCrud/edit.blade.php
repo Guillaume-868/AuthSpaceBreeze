@@ -10,14 +10,12 @@
 
             <h4 class="mt-5 text-center font-bold">🇫🇷 Français</h4>
             <input type="text" name="name_fr" value="{{ $planet->name_fr }}" required placeholder="Nom (FR)" class="mb-2 mt-4 p-2 border rounded">
-            <input type="text" name="subtitle_fr" value="{{ $planet->subtitle_fr }}" placeholder="Sous-titre (FR)" class="mb-2 p-2 border rounded">
             <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ $planet->description_fr }}</textarea>
             <input type="text" name="distance_fr" value="{{ $planet->distance_fr }}" placeholder="Distance (FR)" class="mb-2 p-2 border rounded">
             <input type="text" name="duration_fr" value="{{ $planet->duration_fr }}" placeholder="Durée (FR)" class="mb-4 p-2 border rounded">
 
             <h4 class="mt-5 text-center font-bold">🇬🇧 English</h4>
             <input type="text" name="name_en" value="{{ $planet->name_en }}" required placeholder="Name (EN)" class="mb-2 mt-4 p-2 border rounded">
-            <input type="text" name="subtitle_en" value="{{ $planet->subtitle_en }}" placeholder="Subtitle (EN)" class="mb-2 p-2 border rounded">
             <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ $planet->description_en }}</textarea>
             <input type="text" name="distance_en" value="{{ $planet->distance_en }}" placeholder="Distance (EN)" class="mb-2 p-2 border rounded">
             <input type="text" name="duration_en" value="{{ $planet->duration_en }}" placeholder="Duration (EN)" class="mb-4 p-2 border rounded">

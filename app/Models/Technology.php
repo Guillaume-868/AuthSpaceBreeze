@@ -16,8 +16,6 @@ class Technology extends Model
     'starships_en',
     'description_fr',
     'description_en',
-    'subtitle_fr',
-    'subtitle_en',
     'launcher_fr',
     'launcher_en',
   ];
@@ -33,7 +31,6 @@ class Technology extends Model
       'id',
       "starships_{$locale} as starships", // ✅ correct
       "description_{$locale} as description",
-      "subtitle_{$locale} as subtitle",
       "launcher_{$locale} as launcher",
       'created_at',
       'updated_at',

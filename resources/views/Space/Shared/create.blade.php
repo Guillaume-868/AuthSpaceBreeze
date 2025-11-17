@@ -55,17 +55,10 @@
 
             <textarea name="description_fr" placeholder="Description (FR)" class="form-control mb-2 w-80">{{ old('description_fr') }}</textarea>
 
-            <input type="text" name="meet_fr" placeholder="Rencontre (FR)"
-                value="{{ old('meet_fr') }}" class="form-control mb-4">
-
             @else
 
             <input type="text" name="starships_fr" placeholder="Vaisseau (FR)"
                 value="{{ old('starships_fr') }}" required class="form-control mb-2 mt-4">
-
-
-            <input type="text" name="subtitle_fr" placeholder="Sous-titre (FR)"
-                value="{{ old('subtitle_fr') }}" class="form-control mb-2">
 
 
             <textarea name="description_fr" placeholder="Description (FR)" class="form-control mb-2 w-80">{{ old('description_fr') }}</textarea>
@@ -104,17 +97,10 @@
 
             <textarea name="description_en" placeholder="Description (EN)" class="form-control mb-2 w-80">{{ old('description_en') }}</textarea>
 
-            <input type="text" name="meet_en" placeholder="Meet (EN)"
-                value="{{ old('meet_en') }}" class="form-control mb-4">
-
             @else
 
             <input type="text" name="starships_en" placeholder="Starships (EN)"
                 value="{{ old('starships_en') }}" required class="form-control mb-2 mt-4">
-
-            <input type="text" name="subtitle_en" placeholder="Subtitle (EN)"
-                value="{{ old('subtitle_en') }}" class="form-control mb-2">
-
 
             <textarea name="description_en" placeholder="Description (EN)" class="form-control mb-2 w-80">{{ old('description_en') }}</textarea>
 

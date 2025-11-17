@@ -39,12 +39,10 @@
             @elseif ($type === 'crews')
             <input type="text" name="fonction_fr" value="{{ old('fonction_fr', $item->fonction_fr) }}" required placeholder="Fonction (FR)" class="mb-2 mt-4 p-2 border rounded">
             <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ old('description_fr', $item->description_fr) }}</textarea>
-            <input type="text" name="meet_fr" value="{{ old('meet_fr', $item->meet_fr) }}" placeholder="Rencontre (FR)" class="mb-4 p-2 border rounded">
 
             @else
             <input type="text" name="starships_fr" value="{{ old('starships_fr', $item->starships_fr) }}" required placeholder="Vaisseau (FR)" class="mb-2 mt-4 p-2 border rounded">
             <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ old('description_fr', $item->description_fr) }}</textarea>
-            <input type="text" name="subtitle_fr" value="{{ old('subtitle_fr', $item->subtitle_fr) }}" placeholder="Sous titre (FR)" class="mb-4 p-2 border rounded">
             @endif
 
             <!-- 🇬🇧 Section Anglais -->
@@ -73,12 +71,10 @@
             @elseif ($type === 'crews')
             <input type="text" name="fonction_en" value="{{ old('fonction_en', $item->fonction_en) }}" required placeholder="Role (EN)" class="mb-2 mt-4 p-2 border rounded">
             <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ old('description_en', $item->description_en) }}</textarea>
-            <input type="text" name="meet_en" value="{{ old('meet_en', $item->meet_en) }}" placeholder="Meet (EN)" class="mb-4 p-2 border rounded">
 
             @else
             <input type="text" name="starships_en" value="{{ old('starships_en', $item->starships_en) }}" required placeholder="Starship (EN)" class="mb-2 mt-4 p-2 border rounded">
             <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ old('description_en', $item->description_en) }}</textarea>
-            <input type="text" name="subtitle_en" value="{{ old('subtitle_en', $item->subtitle_en) }}" placeholder="Subtitle (EN)" class="mb-4 p-2 border rounded">
             @endif
 
             <div class="text-center mt-4">

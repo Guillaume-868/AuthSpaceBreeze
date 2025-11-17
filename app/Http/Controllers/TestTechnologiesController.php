@@ -19,8 +19,8 @@ class TestTechnologiesController extends Controller
             'editRoute' => 'technologies.edit',
             'deleteRoute' => 'technologies.destroy',
             'fields' => [
-                'fr' => ['starships' => 'Nom du vaisseau', 'subtitle' => 'Sous-titre'],
-                'en' => ['starships' => 'Name ', 'subtitle' => 'Subtitle'],
+                'fr' => ['starships' => 'Nom du vaisseau'],
+                'en' => ['starships' => 'Name '],
             ],
             'items' => $items,
             'type' => 'technologies', // 👈 ajoute ce paramètre
@@ -41,13 +41,9 @@ class TestTechnologiesController extends Controller
             'starships_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
             'description_fr' => ['nullable', 'string'],
             'description_en' => ['nullable', 'string'],
-            'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // interdit les chiffres si rempli
-            'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // idem
         ], [
             'starships_fr.regex' => 'Le nom du vaisseau français ne doit pas contenir de chiffres.',
             'starships_en.regex' => 'Le nom du vaisseau anglais ne doit pas contenir de chiffres.',
-            'subtitle_fr.regex' => 'Le sous-titre français ne doit pas contenir de chiffres.',
-            'subtitle_en.regex' => 'Le sous-titre anglais ne doit pas contenir de chiffres.',
         ]);
 
         // return redirect()->route('planets.index');
@@ -77,13 +73,9 @@ class TestTechnologiesController extends Controller
             'starships_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
             'description_fr' => ['required','nullable', 'string'],
             'description_en' => ['required','nullable', 'string'],
-            'subtitle_fr' => ['required','nullable', 'string', 'regex:/^[^\d]*$/'], // interdit les chiffres si rempli
-            'subtitle_en' => ['required','nullable', 'string', 'regex:/^[^\d]*$/'], // idem
         ], [
             'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
             'starships_en.regex' => 'The name of starship cant have numbers.',
-            'subtitle_fr.regex' => 'Le sous-titre ne doit pas contenir de chiffres.',
-            'subtitle_en.regex' => 'The subtitle cant have numbers',
         ]);
 
         $technology->update($validated);

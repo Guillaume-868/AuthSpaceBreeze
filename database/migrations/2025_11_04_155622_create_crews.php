@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('fonction_en',50);
             $table->text('description_fr');
             $table->text('description_en');
-            $table->string('meet_fr',50)->nullable();
-            $table->string('meet_en',50)->nullable();
         });
     }
 

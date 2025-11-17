@@ -28,8 +28,6 @@ class CrewController extends Controller
             'fonction_en' => 'required|string|max:255',
             'description_fr' => 'nullable|string',
             'description_en' => 'nullable|string',
-            'meet_fr' => 'nullable|string',
-            'meet_en' => 'nullable|string',
         ]);
 
         // return redirect()->route('planets.index');
@@ -66,8 +64,6 @@ class CrewController extends Controller
             'fonction_en' => 'required|string|max:255',
             'description_fr' => 'nullable|string',
             'description_en' => 'nullable|string',
-            'meet_fr' => 'nullable|string',
-            'meet_en' => 'nullable|string',
         ]);
 
         $crew->update($validated);
