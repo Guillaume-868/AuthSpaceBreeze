@@ -39,20 +39,23 @@ class PlanetController extends Controller
         $validated = $request->validate([
             'name_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
             'name_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
-            'description_fr' => ['nullable'],
-            'description_en' => ['nullable'],
-            'distance_fr' => ['string', 'required'],
-            'distance_en' => ['string', 'required'],
-            'duration_fr' => ['string', 'required'],
-            'duration_en' => ['string', 'required'],
+            'description_fr' => ['required'],
+            'description_en' => ['required'],
+            'distance_fr' => ['required','string'],
+            'distance_en' => ['required','string'],
+            'duration_fr' => ['required','string'],
+            'duration_en' => ['required','string'],
         ], [
 
             'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
             'distance_fr.regex' => 'Merci d\'insérer des chiffres',
             'duration_fr.regex' => 'Merci d\'insérer des chiffres',
+            'description_fr' => 'Merci d\'ajouter du texte',
+
             'name_en.regex' => 'Ne doit pas contenir de chiffres.',
             'distance_en.regex' => 'Merci d\'insérer des chiffres',
             'duration_en.regex' => 'Merci d\'insérer des chiffres',
+            'description_en' => 'Merci d\'ajouter du texte',
         ]);
 
         // return redirect()->route('planets.index');

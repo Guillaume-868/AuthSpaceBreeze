@@ -41,8 +41,12 @@ class CrewsController extends Controller
             'description_fr' => ['required','nullable', 'string'],
             'description_en' => ['required','nullable', 'string'],
         ], [
-            'fonction_fr.regex' => 'La fonction française ne doit pas contenir de chiffres.',
-            'fonction_en.regex' => 'La fonction anglaise ne doit pas contenir de chiffres.',
+            'fonction_fr.regex' => 'La fonction ne doit pas contenir de chiffres.',
+            'description_fr' => 'Merci d\'ajouter du texte',
+
+            'fonction_en.regex' => 'La fonction ne doit pas contenir de chiffres.',
+            'description_en' => 'Merci d\'ajouter du texte',
+
         ]);
         // return redirect()->route('planets.index');
 
@@ -72,8 +76,11 @@ class CrewsController extends Controller
             'description_fr' => ['required','nullable', 'string'],
             'description_en' => ['required','nullable', 'string'],
         ], [
-            'fonction_fr.regex' => 'La fonction française ne doit pas contenir de chiffres.',
-            'fonction_en.regex' => 'La fonction anglaise ne doit pas contenir de chiffres.',
+            'fonction_fr.regex' => 'La fonction ne doit pas contenir de chiffres.',
+            'description_fr' => 'Merci d\'ajouter du texte',
+
+            'fonction_en.regex' => 'La fonction ne doit pas contenir de chiffres.',
+            'description_en' => 'Merci d\'ajouter du texte',
         ]);
 
         $crew->update($validated);

@@ -38,7 +38,13 @@
 
             @elseif ($type === 'crews')
             <input type="text" name="fonction_fr" value="{{ old('fonction_fr', $item->fonction_fr) }}" required placeholder="Fonction (FR)" class="mb-2 mt-4 p-2 border rounded">
+            @error('fonction_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ old('description_fr', $item->description_fr) }}</textarea>
+            @error('description_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
 
             @else
             <input type="text" name="starships_fr" value="{{ old('starships_fr', $item->starships_fr) }}" required placeholder="Vaisseau (FR)" class="mb-2 mt-4 p-2 border rounded">
@@ -70,7 +76,13 @@
 
             @elseif ($type === 'crews')
             <input type="text" name="fonction_en" value="{{ old('fonction_en', $item->fonction_en) }}" required placeholder="Role (EN)" class="mb-2 mt-4 p-2 border rounded">
+            @error('fonction_en')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ old('description_en', $item->description_en) }}</textarea>
+            @error('description_en')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
 
             @else
             <input type="text" name="starships_en" value="{{ old('starships_en', $item->starships_en) }}" required placeholder="Starship (EN)" class="mb-2 mt-4 p-2 border rounded">

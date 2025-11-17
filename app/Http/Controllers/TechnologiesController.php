@@ -42,8 +42,11 @@ class TechnologiesController extends Controller
             'description_fr' => ['nullable', 'string'],
             'description_en' => ['nullable', 'string'],
         ], [
-            'starships_fr.regex' => 'Le nom du vaisseau français ne doit pas contenir de chiffres.',
-            'starships_en.regex' => 'Le nom du vaisseau anglais ne doit pas contenir de chiffres.',
+            'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
+            'description_fr.regex' => 'Merci d\'ajouter du texte',
+            
+            'starships_en.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
+            'description_en.regex' => 'Merci d\'ajouter du texte',
         ]);
 
         // return redirect()->route('planets.index');
@@ -75,7 +78,10 @@ class TechnologiesController extends Controller
             'description_en' => ['required','nullable', 'string'],
         ], [
             'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'starships_en.regex' => 'The name of starship cant have numbers.',
+            'description_fr.regex' => 'Merci d\'ajouter du texte',
+            
+            'starships_en.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
+            'description_en.regex' => 'Merci d\'ajouter du texte',
         ]);
 
         $technology->update($validated);

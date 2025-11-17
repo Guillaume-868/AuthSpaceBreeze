@@ -52,16 +52,21 @@
 
             <input type="text" name="fonction_fr" placeholder="Fonction (FR)"
                 value="{{ old('fonction_fr') }}" required class="form-control mb-2 mt-4">
+                @error('fonction_fr') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
 
             <textarea name="description_fr" placeholder="Description (FR)" class="form-control mb-2 w-80">{{ old('description_fr') }}</textarea>
+            @error('description_fr') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
 
             @else
 
             <input type="text" name="starships_fr" placeholder="Vaisseau (FR)"
                 value="{{ old('starships_fr') }}" required class="form-control mb-2 mt-4">
+                @error('starships_fr') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
 
 
             <textarea name="description_fr" placeholder="Description (FR)" class="form-control mb-2 w-80">{{ old('description_fr') }}</textarea>
+            @error('description_fr') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+            
 
             @endif
 
@@ -93,16 +98,20 @@
 
             <input type="text" name="fonction_en" placeholder="Role (EN)"
                 value="{{ old('fonction_en') }}" required class="form-control mb-2 mt-4">
+                @error('fonction_en') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
 
 
             <textarea name="description_en" placeholder="Description (EN)" class="form-control mb-2 w-80">{{ old('description_en') }}</textarea>
+            @error('description_en') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
 
             @else
 
             <input type="text" name="starships_en" placeholder="Starships (EN)"
                 value="{{ old('starships_en') }}" required class="form-control mb-2 mt-4">
+                @error('starships_en') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
 
             <textarea name="description_en" placeholder="Description (EN)" class="form-control mb-2 w-80">{{ old('description_en') }}</textarea>
+            @error('description_en') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
 
 
             @endif
