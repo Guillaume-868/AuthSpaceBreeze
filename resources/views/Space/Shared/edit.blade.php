@@ -20,9 +20,21 @@
 
             @if ($type === 'planets')
             <input type="text" name="name_fr" value="{{ old('name_fr', $item->name_fr) }}" required placeholder="Nom (FR)" class="mb-2 mt-4 p-2 border rounded">
+            @error('name_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ old('description_fr', $item->description_fr) }}</textarea>
+            @error('description_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             <input type="text" name="distance_fr" value="{{ old('distance_fr', $item->distance_fr) }}" placeholder="Distance (FR)" class="mb-2 p-2 border rounded">
+            @error('distance_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             <input type="text" name="duration_fr" value="{{ old('duration_fr', $item->duration_fr) }}" placeholder="Durée (FR)" class="mb-4 p-2 border rounded">
+            @error('duration_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
 
             @elseif ($type === 'crews')
             <input type="text" name="fonction_fr" value="{{ old('fonction_fr', $item->fonction_fr) }}" required placeholder="Fonction (FR)" class="mb-2 mt-4 p-2 border rounded">

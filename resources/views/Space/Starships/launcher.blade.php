@@ -33,7 +33,7 @@
             <!-- ✅ Bloc texte -->
             <div class="flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                 <span class="text-[#D0D6F9] uppercase text-2xl"> {{ $technology->starships }} </span>
-                <h1 class="text-white uppercase text-4xl mt-2"> {{ $technology->subtitle }}</h1>
+                <h1 class="text-white uppercase text-4xl mt-2"> {{__('technology.subtitle')}}</h1>
                 <p class="text-[#D0D6F9] text-center lg:text-left mt-10 mb-10 lg:max-w-xl">
                 {{ $technology->description }}
                 </p>

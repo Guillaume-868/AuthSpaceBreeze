@@ -75,10 +75,10 @@ class TestTechnologiesController extends Controller
         $validated = $request->validate([
             'starships_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
             'starships_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
-            'description_fr' => ['nullable', 'string'],
-            'description_en' => ['nullable', 'string'],
-            'subtitle_fr' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // interdit les chiffres si rempli
-            'subtitle_en' => ['nullable', 'string', 'regex:/^[^\d]*$/'], // idem
+            'description_fr' => ['required','nullable', 'string'],
+            'description_en' => ['required','nullable', 'string'],
+            'subtitle_fr' => ['required','nullable', 'string', 'regex:/^[^\d]*$/'], // interdit les chiffres si rempli
+            'subtitle_en' => ['required','nullable', 'string', 'regex:/^[^\d]*$/'], // idem
         ], [
             'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
             'starships_en.regex' => 'The name of starship cant have numbers.',
