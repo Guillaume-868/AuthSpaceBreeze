@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Crew;
 use Illuminate\Http\Request;
 
-class TestCrewsController extends Controller
+class CrewsController extends Controller
 {
     public function index()
     {

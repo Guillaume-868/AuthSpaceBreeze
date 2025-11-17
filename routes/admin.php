@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanetController;
-use App\Http\Controllers\TestPlanetsController;
-use App\Http\Controllers\TestCrewsController;
-use App\Http\Controllers\TestTechnologiesController ;
+use App\Http\Controllers\CrewsController;
+use App\Http\Controllers\TechnologiesController ;
 
 // Route::prefix('admin')->group(function () {
 //     Route::resource('planets', PlanetController::class);
@@ -13,19 +12,19 @@ use App\Http\Controllers\TestTechnologiesController ;
 
 
 // 🌍 Routes pour les planètes
-// Route::resource('planets', TestPlanetsController::class);
+// Route::resource('planets', PlanetController::class);
 
 Route::prefix('admin')->group(function () {
-    Route::resource('planets', TestPlanetsController::class);
+    Route::resource('planets', PlanetController::class);
 });
 
 Route::prefix('admin')->group(function () {
-    Route::resource('crews', TestCrewsController::class);
+    Route::resource('crews', CrewsController::class);
 });
 
 Route::prefix('admin')->group(function () {
-    Route::resource('technologies', TestTechnologiesController ::class);
+    Route::resource('technologies', TechnologiesController ::class);
 });
 
 // // 👩‍🚀 Routes pour l’équipage
-// Route::resource('crews', TestCrewsController::class);
+// Route::resource('crews', CrewsController::class);

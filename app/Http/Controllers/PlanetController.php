@@ -7,71 +7,96 @@ use Illuminate\Http\Request;
 
 class PlanetController extends Controller
 {
-    // 🪐 Lister les planètes selon la langue
+
     public function index()
     {
-        $planets = Planet::selectLocalized()->get();
-        return view('Space.PlanetsCrud.index', compact('planets'));
+        $items = Planet::selectLocalized()->get();
+        return view('Space.Shared.index', [
+            'title' => '🌍 Planets List',
+            'add' => 'planets',
+            'createRoute' => 'planets.create',
+            'editRoute' => 'planets.edit',
+            'deleteRoute' => 'planets.destroy',
+            // Vérifier la correspondance des rubriques / clefs du 'fields' avec la methode selectlocalized du modèle Planet
+            'fields' => [
+                'fr' => ['name' => 'Nom',  'distance' => 'Distance', 'duration' => 'Durée'],
+                'en' => ['name' => 'Name', 'distance' => 'Distance', 'duration' => 'Duration'],
+            ],
+            'items' => $items,
+            'type' => 'planets', // 👈 ajoute ce paramètre
+        ]);
     }
 
     // ➕ Formulaire d’ajout
     public function create()
     {
-        return view('Space.PlanetsCrud.create');
+        return view('Space.Shared.create', ['type' => 'planets']);
     }
 
-   // 💾 Enregistrer une planète
-public function store(Request $request)
-{
-    $validated = $request->validate([
-        'name_fr' => 'required|string|max:255',
-        'name_en' => 'required|string|max:255',
-        'description_fr' => 'nullable|string',
-        'description_en' => 'nullable|string',
-        'distance_fr' => 'nullable|string',
-        'distance_en' => 'nullable|string',
-        'duration_fr' => 'nullable|string',
-        'duration_en' => 'nullable|string',
-    ]);
+    // 💾 Enregistrer une planète
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
+            'name_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
+            'description_fr' => ['nullable'],
+            'description_en' => ['nullable'],
+            'distance_fr' => ['string', 'required'],
+            'distance_en' => ['string', 'required'],
+            'duration_fr' => ['string', 'required'],
+            'duration_en' => ['string', 'required'],
+        ], [
 
-    // return redirect()->route('planets.index');
+            'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_fr.regex' => 'Merci d\'insérer des chiffres',
+            'duration_fr.regex' => 'Merci d\'insérer des chiffres',
+            'name_en.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_en.regex' => 'Merci d\'insérer des chiffres',
+            'duration_en.regex' => 'Merci d\'insérer des chiffres',
+        ]);
 
-    // Crée la planète
-    Planet::create($validated);
+        // return redirect()->route('planets.index');
 
-    return redirect()->route('planets.index')->with('success', '✅ Planète créée avec succès !');
+        // Crée la planète
+        Planet::create($validated);
 
-    // $planet = Planet::firstOrCreate(
-    //     ['name_fr' => $validated['name_fr']], // vérifie si la planète existe déjà
-    //     $validated // crée la planète si elle n'existe pas
-    // );
-
-    // $message = $planet->wasRecentlyCreated 
-    //     ? '✅ Planète créée avec succès !' 
-    //     : 'ℹ️ Cette planète existe déjà.';
-
-    // return redirect()->route('planets.index')->with('success', $message);
-    
-}
+        return redirect()->route('planets.index')->with('success', '✅ Planète créée avec succès !');
+    }
 
     // ✏️ Formulaire d’édition
     public function edit(Planet $planet)
     {
-        return view('Space.PlanetsCrud.edit', compact('planet'));
+        return view('Space.Shared.edit', [
+            'item' => $planet,
+            'type' => 'planets',
+            'updateRoute' => 'planets.update',
+            'title' => 'Modifier la planète',
+        ]);
     }
 
     // 🔁 Mettre à jour une planète
     public function update(Request $request, Planet $planet)
     {
         $validated = $request->validate([
-            'name_fr' => 'required|string|max:255',
-            'name_en' => 'required|string|max:255',
-            'description_fr' => 'nullable|string',
-            'description_en' => 'nullable|string',
-            'distance_fr' => 'nullable|string',
-            'distance_en' => 'nullable|string',
-            'duration_fr' => 'nullable|string',
-            'duration_en' => 'nullable|string',
+            'name_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
+            'name_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'],
+            'description_fr' => ['required'],
+            'description_en' => ['required'],
+            'distance_fr' => ['required','string'],
+            'distance_en' => ['required','string'],
+            'duration_fr' => ['required','string'],
+            'duration_en' => ['required','string'],
+        ], [
+
+            'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_fr.regex' => 'Merci d\'insérer des chiffres',
+            'duration_fr.regex' => 'Merci d\'insérer des chiffres',
+            'description_fr.regex' => 'Merci d\'ajouter du texte',
+
+            'name_en.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_en.regex' => 'Merci d\'insérer des chiffres',
+            'duration_en.regex' => 'Merci d\'insérer des chiffres',
+            'description_en.regex' => 'Merci d\'ajouter du texte',
         ]);
 
         $planet->update($validated);

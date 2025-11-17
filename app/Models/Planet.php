@@ -26,7 +26,7 @@ class Planet extends Model
      * Sélectionne uniquement les colonnes dans la langue courante
      */
 
-    // Il faut faire correspondre le nom de ces rubriques  de la méthode selectLocalized aux rubriques de mon field (méthode index de mon controller TestPlanetsController).
+    // Il faut faire correspondre le nom de ces rubriques  de la méthode selectLocalized aux rubriques de mon field (méthode index de mon controller PlanetController).
     public static function selectLocalized()
     {
         $locale = app()->getLocale(); // 'fr' ou 'en'

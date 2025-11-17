@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 
-class TestTechnologiesController extends Controller
+class TechnologiesController extends Controller
 {
 
     public function index()
