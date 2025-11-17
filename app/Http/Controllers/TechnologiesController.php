@@ -39,14 +39,14 @@ class TechnologiesController extends Controller
         $validated = $request->validate([
             'starships_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
             'starships_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
-            'description_fr' => ['nullable', 'string'],
-            'description_en' => ['nullable', 'string'],
+            'description_fr' => ['required', 'string'],
+            'description_en' => ['required', 'string'],
         ], [
             'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_fr.regex' => 'Merci d\'ajouter du texte',
+            'description_fr' => 'Merci d\'ajouter du texte',
             
             'starships_en.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_en.regex' => 'Merci d\'ajouter du texte',
+            'description_en' => 'Merci d\'ajouter du texte',
         ]);
 
         // return redirect()->route('planets.index');
@@ -74,14 +74,14 @@ class TechnologiesController extends Controller
         $validated = $request->validate([
             'starships_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
             'starships_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
-            'description_fr' => ['required','nullable', 'string'],
-            'description_en' => ['required','nullable', 'string'],
+            'description_fr' => ['required', 'string'],
+            'description_en' => ['required','string'],
         ], [
             'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_fr.regex' => 'Merci d\'ajouter du texte',
+            'description_fr' => 'Merci d\'ajouter du texte',
             
-            'starships_en.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_en.regex' => 'Merci d\'ajouter du texte',
+            'starships_en' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
+            'description_en' => 'Merci d\'ajouter du texte',
         ]);
 
         $technology->update($validated);

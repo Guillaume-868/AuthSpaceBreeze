@@ -38,8 +38,8 @@ class CrewsController extends Controller
         $validated = $request->validate([
             'fonction_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
             'fonction_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
-            'description_fr' => ['required','nullable', 'string'],
-            'description_en' => ['required','nullable', 'string'],
+            'description_fr' => ['required', 'string'],
+            'description_en' => ['required', 'string'],
         ], [
             'fonction_fr.regex' => 'La fonction ne doit pas contenir de chiffres.',
             'description_fr' => 'Merci d\'ajouter du texte',
@@ -73,8 +73,8 @@ class CrewsController extends Controller
         $validated = $request->validate([
             'fonction_fr' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
             'fonction_en' => ['required', 'string', 'max:255', 'regex:/^[^\d]*$/'], // interdit les chiffres
-            'description_fr' => ['required','nullable', 'string'],
-            'description_en' => ['required','nullable', 'string'],
+            'description_fr' => ['required', 'string'],
+            'description_en' => ['required', 'string'],
         ], [
             'fonction_fr.regex' => 'La fonction ne doit pas contenir de chiffres.',
             'description_fr' => 'Merci d\'ajouter du texte',

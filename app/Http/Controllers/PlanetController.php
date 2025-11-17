@@ -48,13 +48,13 @@ class PlanetController extends Controller
         ], [
 
             'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
-            'distance_fr.regex' => 'Merci d\'insérer des chiffres',
-            'duration_fr.regex' => 'Merci d\'insérer des chiffres',
+            'distance_fr' => 'Merci d\'insérer des chiffres',
+            'duration_fr' => 'Merci d\'insérer des chiffres',
             'description_fr' => 'Merci d\'ajouter du texte',
 
             'name_en.regex' => 'Ne doit pas contenir de chiffres.',
-            'distance_en.regex' => 'Merci d\'insérer des chiffres',
-            'duration_en.regex' => 'Merci d\'insérer des chiffres',
+            'distance_en' => 'Merci d\'insérer des chiffres',
+            'duration_en' => 'Merci d\'insérer des chiffres',
             'description_en' => 'Merci d\'ajouter du texte',
         ]);
 
@@ -92,14 +92,14 @@ class PlanetController extends Controller
         ], [
 
             'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
-            'distance_fr.regex' => 'Merci d\'insérer des chiffres',
-            'duration_fr.regex' => 'Merci d\'insérer des chiffres',
-            'description_fr.regex' => 'Merci d\'ajouter du texte',
+            'distance_fr' => 'Merci d\'insérer des chiffres',
+            'duration_fr' => 'Merci d\'insérer des chiffres',
+            'description_fr' => 'Merci d\'ajouter du texte',
 
             'name_en.regex' => 'Ne doit pas contenir de chiffres.',
-            'distance_en.regex' => 'Merci d\'insérer des chiffres',
-            'duration_en.regex' => 'Merci d\'insérer des chiffres',
-            'description_en.regex' => 'Merci d\'ajouter du texte',
+            'distance_en' => 'Merci d\'insérer des chiffres',
+            'duration_en' => 'Merci d\'insérer des chiffres',
+            'description_en' => 'Merci d\'ajouter du texte',
         ]);
 
         $planet->update($validated);
