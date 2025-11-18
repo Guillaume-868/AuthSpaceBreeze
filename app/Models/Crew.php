@@ -22,7 +22,9 @@ class Crew extends Model
     /**
      * Sélectionne uniquement les colonnes dans la langue courante
      */
-    public static function selectLocalized()
+
+    // Méthode statique
+    public static function selectLocalized($id)
     {
         $locale = app()->getLocale(); // 'fr' ou 'en'
 
@@ -32,6 +34,33 @@ class Crew extends Model
             "description_{$locale} as description",
             'created_at',
             'updated_at'
-        ]);
+        ])
+
+          // Cibler la planête en particulier
+          ->where('id', $id);
+    }
+
+    // Equivalent :
+
+   // Avantage d'un scope :
+// - Plus flexible : tu peux enchaîner d’autres méthodes Eloquent (where, orderBy, with, etc.).
+// - Si tu veux utiliser $planet->created_at ou $planet->some_other_column, elles sont toujours disponibles.
+
+    // public function scopeSelectLocalized($query)
+    // {
+    //     $locale = app()->getLocale();
+
+    //     return $query->select('*')
+    //         ->addSelect(
+    //             "fonction_{$locale} as fonction",
+    //             "description_{$locale} as description",
+    //         );
+    // }
+
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        // Applique selectLocalized() pour le membre d'équipage demandé
+        return $this->selectLocalized()->where('id', $value)->firstOrFail();
     }
 }
