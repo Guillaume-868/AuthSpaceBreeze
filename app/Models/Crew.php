@@ -57,10 +57,12 @@ class Crew extends Model
     //         );
     // }
 
-
     public function resolveRouteBinding($value, $field = null)
     {
-        // Applique selectLocalized() pour le membre d'équipage demandé
-        return $this->selectLocalized()->where('id', $value)->firstOrFail();
+        return $this->newQuery()       // IMPORTANT pour pouvoir appliquer le scope
+                    ->selectLocalized() 
+                    ->where('id', $value)
+                    ->firstOrFail();
     }
+    
 }
