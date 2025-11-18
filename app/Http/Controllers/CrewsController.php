@@ -41,11 +41,13 @@ class CrewsController extends Controller
             'description_fr' => ['required', 'string'],
             'description_en' => ['required', 'string'],
         ], [
+            'fonction_fr.required' => 'Ne peut pas être vide',
             'fonction_fr.regex' => 'La fonction ne doit pas contenir de chiffres.',
-            'description_fr' => 'Merci d\'ajouter du texte',
+            'description_fr.required' => 'Merci d\'ajouter du texte',
 
-            'fonction_en.regex' => 'La fonction ne doit pas contenir de chiffres.',
-            'description_en' => 'Merci d\'ajouter du texte',
+            'fonction_en.required' => 'Ne peut pas être vide',
+            'fonction_en.regex' => 'Le rôle ne doit pas contenir de chiffres.',
+            'description_en.required' => 'Merci d\'ajouter du texte',
 
         ]);
         // return redirect()->route('planets.index');
@@ -76,11 +78,13 @@ class CrewsController extends Controller
             'description_fr' => ['required', 'string'],
             'description_en' => ['required', 'string'],
         ], [
+            'fonction_fr.required' => 'Ne peut pas être vide',
             'fonction_fr.regex' => 'La fonction ne doit pas contenir de chiffres.',
-            'description_fr' => 'Merci d\'ajouter du texte',
+            'description_fr.required' => 'Merci d\'ajouter du texte',
 
+            'fonction_en.required' => 'Ne peut pas être vide',
             'fonction_en.regex' => 'La fonction ne doit pas contenir de chiffres.',
-            'description_en' => 'Merci d\'ajouter du texte',
+            'description_en.required' => 'Merci d\'ajouter du texte',
         ]);
 
         $crew->update($validated);

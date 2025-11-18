@@ -10,7 +10,7 @@
     </h1>
 
     <div class="flex justify-center mt-10">
-        <form action="{{ route($updateRoute, $item) }}" method="POST"
+        <form action="{{ route($updateRoute, $item) }}" method="POST" novalidate
             class="flex flex-col w-96 rounded border border-gray-300 p-6 bg-white shadow-md">
             @csrf
             @method('PUT')
@@ -48,7 +48,13 @@
 
             @else
             <input type="text" name="starships_fr" value="{{ old('starships_fr', $item->starships_fr) }}" required placeholder="Vaisseau (FR)" class="mb-2 mt-4 p-2 border rounded">
+            @error('starships_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             <textarea name="description_fr" placeholder="Description (FR)" class="mb-2 p-2 border rounded">{{ old('description_fr', $item->description_fr) }}</textarea>
+            @error('description_fr')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             @endif
 
             <!-- 🇬🇧 Section Anglais -->
@@ -86,7 +92,13 @@
 
             @else
             <input type="text" name="starships_en" value="{{ old('starships_en', $item->starships_en) }}" required placeholder="Starship (EN)" class="mb-2 mt-4 p-2 border rounded">
+            @error('starships_en')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             <textarea name="description_en" placeholder="Description (EN)" class="mb-2 p-2 border rounded">{{ old('description_en', $item->description_en) }}</textarea>
+            @error('description_en')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
             @endif
 
             <div class="text-center mt-4">

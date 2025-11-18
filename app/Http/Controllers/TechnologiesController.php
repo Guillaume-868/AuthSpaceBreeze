@@ -42,11 +42,13 @@ class TechnologiesController extends Controller
             'description_fr' => ['required', 'string'],
             'description_en' => ['required', 'string'],
         ], [
-            'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_fr' => 'Merci d\'ajouter du texte',
-            
-            'starships_en.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_en' => 'Merci d\'ajouter du texte',
+            'starships_fr.required' => 'Ne peut pas être vide',
+            'starships_fr.regex' => 'Le nom ne doit pas contenir de chiffres.',
+            'description_fr.required' => 'Merci d\'ajouter du texte',
+               
+            'starships_en.required' => 'Ne peut pas être vide',
+            'starships_en.regex' => 'Le nom ne doit pas contenir de chiffres.',
+            'description_en.required' => 'Merci d\'ajouter du texte',
         ]);
 
         // return redirect()->route('planets.index');
@@ -68,7 +70,7 @@ class TechnologiesController extends Controller
            ]);
        }
 
-    // 🔁 Mettre à jour une planète
+    // 🔁 Mettre à jour une technologie
     public function update(Request $request, Technology $technology)
     {
         $validated = $request->validate([
@@ -77,11 +79,13 @@ class TechnologiesController extends Controller
             'description_fr' => ['required', 'string'],
             'description_en' => ['required','string'],
         ], [
-            'starships_fr.regex' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_fr' => 'Merci d\'ajouter du texte',
-            
-            'starships_en' => 'Le nom du vaisseau ne doit pas contenir de chiffres.',
-            'description_en' => 'Merci d\'ajouter du texte',
+            'starships_fr.required' => 'Ne peut pas être vide',
+            'starships_fr.regex' => 'Le nom ne doit pas contenir de chiffres.',
+            'description_fr.required' => 'Merci d\'ajouter du texte',
+               
+            'starships_en.required' => 'Ne peut pas être vide',
+            'starships_en.regex' => 'Le ne doit pas contenir de chiffres.',
+            'description_en.required' => 'Merci d\'ajouter du texte',
         ]);
 
         $technology->update($validated);

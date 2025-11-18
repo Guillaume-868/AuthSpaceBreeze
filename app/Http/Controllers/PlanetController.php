@@ -47,13 +47,19 @@ class PlanetController extends Controller
             'duration_en' => ['required','string'],
         ], [
 
+            'name_fr.required' => 'Ne peut pas être vide',
             'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_fr.required' => 'Ne peut pas être vide',
             'distance_fr' => 'Merci d\'insérer des chiffres',
+            'duration_fr.required' => 'Ne peut pas être vide',
             'duration_fr' => 'Merci d\'insérer des chiffres',
-            'description_fr' => 'Merci d\'ajouter du texte',
+            'description_fr.required' => 'Merci d\'ajouter du texte',
 
+            'name_en.required' => 'Ne peut pas être vide',
             'name_en.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_en.required' => 'Ne peut pas être vide',
             'distance_en' => 'Merci d\'insérer des chiffres',
+            'duration_en.required' => 'Ne peut pas être vide',
             'duration_en' => 'Merci d\'insérer des chiffres',
             'description_en' => 'Merci d\'ajouter du texte',
         ]);
@@ -91,13 +97,19 @@ class PlanetController extends Controller
             'duration_en' => ['required','string'],
         ], [
 
+           'name_fr.required' => 'Ne peut pas être vide',
             'name_fr.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_fr.required' => 'Ne peut pas être vide',
             'distance_fr' => 'Merci d\'insérer des chiffres',
+            'duration_fr.required' => 'Ne peut pas être vide',
             'duration_fr' => 'Merci d\'insérer des chiffres',
-            'description_fr' => 'Merci d\'ajouter du texte',
+            'description_fr.required' => 'Merci d\'ajouter du texte',
 
+            'name_en.required' => 'Ne peut pas être vide',
             'name_en.regex' => 'Ne doit pas contenir de chiffres.',
+            'distance_en.required' => 'Ne peut pas être vide',
             'distance_en' => 'Merci d\'insérer des chiffres',
+            'duration_en.required' => 'Ne peut pas être vide',
             'duration_en' => 'Merci d\'insérer des chiffres',
             'description_en' => 'Merci d\'ajouter du texte',
         ]);

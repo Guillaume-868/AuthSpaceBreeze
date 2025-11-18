@@ -19,8 +19,8 @@
 
     <div class="flex justify-center">
         <form
-            action="{{ route($type . '.store') }}"
-            method="POST"
+            action="{{ route($type . '.store')}}"
+            method="POST" novalidate
             class="flex-col w-100 rounded-sm mt-20 border-radius border border-black p-4">
             @csrf
 
