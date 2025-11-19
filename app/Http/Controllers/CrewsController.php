@@ -11,6 +11,7 @@ class CrewsController extends Controller
     {
 
         $items = Crew::all();
+        
         return view('Space.Shared.index', [
             'title' => '👩‍🚀 Crews List',
             'add' => 'crews',

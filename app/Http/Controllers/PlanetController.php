@@ -12,6 +12,7 @@ class PlanetController extends Controller
     {
 
         $items = Planet::all();
+        
         return view('Space.Shared.index', [
             'title' => '🌍 Planets List',
             'add' => 'planets',
