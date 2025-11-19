@@ -9,8 +9,8 @@ class CrewsController extends Controller
 {
     public function index()
     {
-        $items = Crew::selectLocalized()->get();
 
+        $items = Crew::all();
         return view('Space.Shared.index', [
             'title' => '👩‍🚀 Crews List',
             'add' => 'crews',

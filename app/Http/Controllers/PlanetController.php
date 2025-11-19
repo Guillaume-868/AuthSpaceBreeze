@@ -10,7 +10,8 @@ class PlanetController extends Controller
 
     public function index()
     {
-        $items = Planet::selectLocalized()->get();
+
+        $items = Planet::all();
         return view('Space.Shared.index', [
             'title' => '🌍 Planets List',
             'add' => 'planets',

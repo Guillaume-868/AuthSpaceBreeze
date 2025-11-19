@@ -10,7 +10,7 @@ class TechnologiesController extends Controller
 
     public function index()
     {
-        $items = Technology::selectLocalized()->get();
+        $items =Technology::all();
 
         return view('Space.Shared.index', [
             'title' => '🚀 Technologies List',
