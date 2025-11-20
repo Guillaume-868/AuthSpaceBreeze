@@ -18,4 +18,14 @@ class ImageFactory extends Factory
             'role' => $this->faker->randomElement(['cover', 'thumbnail', null]),
         ];
     }
+
+
+    public function pathCrew()
+    {
+        return [
+            'path' => 'images/crews/' . $this->faker->unique()->word() . '.png',
+            'disk' => 'public',
+            'role' => $this->faker->randomElement(['cover', 'thumbnail', null]),
+        ];
+    }
 }

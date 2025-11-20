@@ -17,4 +17,9 @@ class Image extends Model
 
         return $this->belongsTo(Planet::class);
     }
+
+    public function crew()
+    {
+        return $this->belongsTo(Crew::class);
+    }
 }

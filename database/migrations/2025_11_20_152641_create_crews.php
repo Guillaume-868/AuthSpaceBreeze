@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('crews', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
+
+             // La planète appartient à une image → planet.image_id pointe vers images.id
+             $table->foreignId('image_id')
+             ->constrained('images')
+             ->cascadeOnDelete();
+             
             $table->timestamps();
             $table->string('fonction_fr',50);
             $table->string('fonction_en',50);
