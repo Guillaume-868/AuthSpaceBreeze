@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Image;
 // ← AJOUT ICI
 
 class Planet extends Model
@@ -46,6 +48,34 @@ class Planet extends Model
         // Cibler la planête en particulier
         ->where('id', $id);
     }
+
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
+      
+
+
+
+
+    
+
+// ***************** methodes liées au modele image *****************
+
+// public function image()
+// {
+//     return $this->morphOne(Image::class, 'imageable');
+// }
+
+// // Avoir plusieurs images (optionnel)
+// public function images()
+// {
+//     return $this->morphMany(Image::class, 'imageable');
+// }
+
+// ******************************************************************
 
     // Equivalent :
 

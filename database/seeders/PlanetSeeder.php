@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Planet;
+use App\Models\Image;
 
 class PlanetSeeder extends Seeder
 {
@@ -13,6 +15,19 @@ class PlanetSeeder extends Seeder
      */
     public function run(): void
     {
+
+        // Récupère tous les fichiers présents dans storage/app/public/images/planets
+        $files = Storage::disk('public')->files('images/planets');
+
+        foreach ($files as $file) {
+            // Crée un enregistrement Image pour chaque fichier
+            $image = Image::create([
+                'path' => $file, // chemin relatif : images/planets/nom_image.png
+                'disk' => 'public',
+                'role' => null, // ou 'cover', 'thumbnail', selon la logique
+            ]);
+
+
         Planet::factory()->create([
             'name_fr' => 'Lune',
             'name_en' => 'Moon',
@@ -22,8 +37,10 @@ class PlanetSeeder extends Seeder
             'distance_en' => '384000 km',
             'duration_fr' => '3 Jours',
             'duration_en' => '3 Days',
+            'image_id' => $image->id, // ⚠️ obligatoire
         ]);
+
+        
     }
 
- 
-}
+}}   

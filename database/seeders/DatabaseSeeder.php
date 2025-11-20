@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
          $this->call([
             PlanetSeeder::class,
             CrewSeeder::class,
-            TechnologysSeeder::class
+            TechnologysSeeder::class,
+
 
             // Ajoute d'autres seeders ici si nécessaire
             

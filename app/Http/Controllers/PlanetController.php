@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Planet;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class PlanetController extends Controller
@@ -127,4 +128,22 @@ class PlanetController extends Controller
         $planet->delete();
         return redirect()->route('planets.index')->with('success', '🚀 Planète supprimée avec succès !');
     }
+
 }
+
+
+    // Images
+
+     // 👇 Accessor pour récupérer l'URL de l'image
+//      protected $appends = ['image_url'];
+
+//      public function image()
+//      {
+//          return $this->morphOne(Image::class, 'imageable');
+//      }
+ 
+//      public function getImageUrlAttribute()
+//      {
+//          return $this->image ? $this->image->url : null;
+//      }
+// }
