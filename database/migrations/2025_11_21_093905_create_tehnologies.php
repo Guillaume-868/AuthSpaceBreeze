@@ -13,13 +13,19 @@ return new class extends Migration
     {
         Schema::create('technologies', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
+
+            // La technlogies appartient à une image → crew.image_id pointe vers images.id
+            $table->foreignId('image_id')
+                ->constrained('images')
+                ->cascadeOnDelete();
+
             $table->timestamps();
-            $table->string('starships_fr',50);
-            $table->string('starships_en',50);
+            $table->string('starships_fr', 50);
+            $table->string('starships_en', 50);
             $table->text('description_fr');
             $table->text('description_en');
-            $table->string('launcher_fr',20)-> nullable();
-            $table->string('launcher_en',20)->nullable();
+            $table->string('launcher_fr', 20)->nullable();
+            $table->string('launcher_en', 20)->nullable();
         });
     }
 

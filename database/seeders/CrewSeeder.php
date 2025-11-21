@@ -14,7 +14,7 @@ class CrewSeeder extends Seeder
      */
     public function run(): void
     {
-        // Récupère tous les fichiers présents dans storage/app/public/images/planets
+        // Récupère tous les fichiers présents dans storage/app/public/images/crew
         $files = Storage::disk('public')->files('images/crews');
 
         foreach ($files as $file) {

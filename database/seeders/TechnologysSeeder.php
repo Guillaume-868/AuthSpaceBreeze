@@ -5,6 +5,12 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Technology;
 
+use Illuminate\Support\Facades\Storage;
+
+use App\Models\Planet;
+
+use App\Models\Image;
+
 class TechnologysSeeder extends Seeder
 {
     /**
@@ -12,6 +18,18 @@ class TechnologysSeeder extends Seeder
      */
     public function run(): void
     {
+        
+        // Récupère tous les fichiers présents dans storage/app/public/images/technology
+        $files = Storage::disk('public')->files('images/technology');
+
+        foreach ($files as $file) {
+            // Crée un enregistrement Image pour chaque fichier
+            $image = Image::create([
+                'path' => $file, // chemin relatif : images/planets/nom_image.png
+                'disk' => 'public',
+                'role' => null, // ou 'cover', 'thumbnail', selon la logique
+            ]);
+
         Technology::factory()->create([
             'starships_fr' =>'Le lanceur',
             'starships_en' => 'The Launcher',
@@ -19,6 +37,8 @@ class TechnologysSeeder extends Seeder
             'description_en' => 'A launcher or a booster rocket is a vehicle propulsed by a rocket used for transporting a useful load from the surface of the Planet Earth to Space, often to Earth’s orbit or beyond. Our rocket WEB-X is the most power in service. Standing at one hundred (and) fifty meters high, she gives an impressive show on the launch pad. ',
             'launcher_fr' => 'lanceur spatial',
             'launcher_en' => 'space launcher',
+            'image_id' => $image->id, // ⚠️ obligatoire
         ]);
     }
+}
 }

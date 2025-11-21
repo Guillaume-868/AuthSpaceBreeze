@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('crews', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
 
-             // La planète appartient à une image → planet.image_id pointe vers images.id
+             // Le crew appartient à une image → crew.image_id pointe vers images.id
              $table->foreignId('image_id')
              ->constrained('images')
              ->cascadeOnDelete();

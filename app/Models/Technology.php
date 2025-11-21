@@ -41,6 +41,13 @@ class Technology extends Model
      ->where('id', $id);
   }
 
+
+  public function image()
+  {
+      return $this->belongsTo(Image::class);
+  }
+
+
   // Equivalent : 
 
   // Avantage d'un scope :
