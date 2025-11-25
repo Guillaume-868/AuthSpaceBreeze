@@ -25,27 +25,24 @@ class Crew extends Model
      * Sélectionne uniquement les colonnes dans la langue courante
      */
 
-    // Méthode statique
-    public static function selectLocalized($id)
-    {
-        $locale = app()->getLocale(); // 'fr' ou 'en'
+  
+     public function scopeSelectLocalized($query)
+     {
+         $locale = app()->getLocale();
+     
+         return $query->select([
+             'id',
+             "fonction_{$locale} as fonction",
+             "description_{$locale} as description",
+             'created_at',
+             'updated_at',
+         ]);
+     }
 
-        return self::select([
-            'id',
-            "fonction_{$locale} as fonction", // ✅ correct
-            "description_{$locale} as description",
-            'created_at',
-            'updated_at'
-        ])
-
-          // Cibler la planête en particulier
-          ->where('id', $id);
-    }
-
-    public function image()
-    {
-        return $this->belongsTo(Image::class);
-    }
+    // public function image()
+    // {
+    //     return $this->belongsTo(Image::class);
+    // }
 
 
     

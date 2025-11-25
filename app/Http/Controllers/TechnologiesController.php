@@ -10,20 +10,23 @@ class TechnologiesController extends Controller
 
     public function index()
     {
-        $items = Technology::all();
-
+        $items = Technology::selectLocalized()->get();
+    
         return view('Space.Shared.index', [
-            'title' => '🚀 Technologies List',
-            'add' => 'Technology',
-            'createRoute' => 'technologies.create',
-            'editRoute' => 'technologies.edit',
-            'deleteRoute' => 'technologies.destroy',
+            'title'        => '🚀 Technologies List',
+            'add'          => 'Technology',
+            'createRoute'  => 'technologies.create',
+            'editRoute'    => 'technologies.edit',
+            'deleteRoute'  => 'technologies.destroy',
+    
+            // Correspond exactement aux alias du selectLocalized()
             'fields' => [
                 'fr' => ['starships' => 'Nom du vaisseau'],
-                'en' => ['starships' => 'Name '],
+                'en' => ['starships' => 'Name'],
             ],
+    
             'items' => $items,
-            'type' => 'technologies', // 👈 ajoute ce paramètre
+            'type'  => 'technologies',
         ]);
     }
 

@@ -9,24 +9,22 @@ class CrewsController extends Controller
 {
     public function index()
     {
-
-        $items = Crew::all();
-        
+        $items = Crew::selectLocalized()->get();
+    
         return view('Space.Shared.index', [
-            'title' => '👩‍🚀 Crews List',
-            'add' => 'crews',
+            'title'  => '👩‍🚀 Crews List',
+            'add'    => 'crews',
             'createRoute' => 'crews.create',
-            'editRoute' => 'crews.edit',
+            'editRoute'   => 'crews.edit',
             'deleteRoute' => 'crews.destroy',
             'fields' => [
                 'fr' => ['fonction' => 'Fonction', 'created_at' => 'Crée le', 'updated_at' => 'Mis à jour le'],
                 'en' => ['fonction' => 'Role', 'created_at' => 'Created at', 'updated_at' => 'Update at'],
             ],
             'items' => $items,
-            'type' => 'crews', // 👈 ajoute ce paramètre
+            'type'  => 'crews',
         ]);
     }
-
     // ➕ Formulaire d’ajout
     public function create()
     {

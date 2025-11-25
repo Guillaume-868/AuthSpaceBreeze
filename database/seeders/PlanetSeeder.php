@@ -16,31 +16,6 @@ class PlanetSeeder extends Seeder
     public function run(): void
     {
 
-
-
-        // Récupère tous les fichiers présents dans storage/app/public/images/planets
-        // $files = Storage::disk('public')->files('images/planets');
-
-        // $planets_img = [
-
-        //     "images/planets/moon.png",
-        //     "images/planets/mars.png",
-        //     "images/planets/europe.png",
-        //     "images/planets/titan.png",
-        // ];
-
-        // foreach ($planets_img as $planet_img) {
-        //     // Crée un enregistrement Image pour chaque fichier
-        //     $image = Image::create([
-        //         'path' => $planet_img, // chemin relatif : images/planets/nom_image.png
-        //         'disk' => 'public',
-        //         'role' => null, // ou 'cover', 'thumbnail', selon la logique
-        //     ]);
-        // }
-
-
-
-
         $data = [
             [
                 'name_fr' => 'Lune',

@@ -11,22 +11,23 @@ class PlanetController extends Controller
 
     public function index()
     {
-
-        $items = Planet::all();
+        $items = Planet::selectLocalized()->get();
         
         return view('Space.Shared.index', [
-            'title' => '🌍 Planets List',
-            'add' => 'planets',
-            'createRoute' => 'planets.create',
-            'editRoute' => 'planets.edit',
-            'deleteRoute' => 'planets.destroy',
-            // Vérifier la correspondance des rubriques / clefs du 'fields' avec la methode selectlocalized du modèle Planet
+            'title'        => '🌍 Planets List',
+            'add'          => 'planets',
+            'createRoute'  => 'planets.create',
+            'editRoute'    => 'planets.edit',
+            'deleteRoute'  => 'planets.destroy',
+    
+            // Correspondance exacte avec les alias choisis dans selectLocalized()
             'fields' => [
-                'fr' => ['name' => 'Nom',  'distance' => 'Distance', 'duration' => 'Durée'],
+                'fr' => ['name' => 'Nom', 'distance' => 'Distance', 'duration' => 'Durée'],
                 'en' => ['name' => 'Name', 'distance' => 'Distance', 'duration' => 'Duration'],
             ],
+    
             'items' => $items,
-            'type' => 'planets', // 👈 ajoute ce paramètre
+            'type'  => 'planets',
         ]);
     }
 

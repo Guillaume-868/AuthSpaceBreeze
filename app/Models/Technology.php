@@ -25,21 +25,17 @@ class Technology extends Model
    */
 
   // Méthode statique
-  public static function selectLocalized($id)
-  {
-    $locale = app()->getLocale(); // 'fr' ou 'en'
+  public function scopeSelectLocalized($query)
+{
+    $locale = app()->getLocale(); // fr ou en
 
-    return self::select([
-      'id',
-      "starships_{$locale} as starships", // ✅ correct
-      "description_{$locale} as description",
-      "launcher_{$locale} as launcher",
-      'created_at',
-      'updated_at',
-    ])
-     // Cibler la planête en particulier
-     ->where('id', $id);
-  }
+    return $query->select([
+        'id',
+        "starships_{$locale} as starships",
+        'created_at',
+        'updated_at',
+    ]);
+}
 
 
   public function image()
