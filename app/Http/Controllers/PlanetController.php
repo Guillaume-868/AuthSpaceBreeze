@@ -9,6 +9,27 @@ use Illuminate\Http\Request;
 class PlanetController extends Controller
 {
 
+    // public function index()
+    // {
+
+    //     $items = Planet::all();
+        
+    //     return view('Space.Shared.index', [
+    //         'title' => '🌍 Planets List',
+    //         'add' => 'planets',
+    //         'createRoute' => 'planets.create',
+    //         'editRoute' => 'planets.edit',
+    //         'deleteRoute' => 'planets.destroy',
+    //         // Vérifier la correspondance des rubriques / clefs du 'fields' avec la methode selectlocalized du modèle Planet
+    //         'fields' => [
+    //             'fr' => ['name' => 'Nom',  'distance' => 'Distance', 'duration' => 'Durée'],
+    //             'en' => ['name' => 'Name', 'distance' => 'Distance', 'duration' => 'Duration'],
+    //         ],
+    //         'items' => $items,
+    //         'type' => 'planets', // 👈 ajoute ce paramètre
+    //     ]);
+    // }
+
     public function index()
     {
         $items = Planet::selectLocalized()->get();
