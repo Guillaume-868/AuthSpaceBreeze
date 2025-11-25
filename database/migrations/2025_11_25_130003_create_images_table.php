@@ -12,6 +12,11 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id(); 
+
+            $table->foreignId('planet_id')->nullable()
+            ->constrained('planets')
+            ->nullOnDelete(); 
+
             $table->string('path')->unique();     // ex: images/planets/earth.png
             $table->string('disk')->default('public'); // permet de changer plus tard
             $table->string('role')->nullable(); // ex: cover, thumbnail, gallery...

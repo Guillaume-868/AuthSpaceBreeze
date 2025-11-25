@@ -37,7 +37,7 @@ class TechnologysSeeder extends Seeder
             'description_en' => 'A launcher or a booster rocket is a vehicle propulsed by a rocket used for transporting a useful load from the surface of the Planet Earth to Space, often to Earth’s orbit or beyond. Our rocket WEB-X is the most power in service. Standing at one hundred (and) fifty meters high, she gives an impressive show on the launch pad. ',
             'launcher_fr' => 'lanceur spatial',
             'launcher_en' => 'space launcher',
-            'image_id' => $image->id, // ⚠️ obligatoire
+            // 'image_id' => $image->id, // ⚠️ obligatoire
         ]);
     }
 }

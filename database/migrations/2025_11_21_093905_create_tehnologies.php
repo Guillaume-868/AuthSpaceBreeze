@@ -13,12 +13,7 @@ return new class extends Migration
     {
         Schema::create('technologies', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
-
-            // La technlogies appartient à une image → crew.image_id pointe vers images.id
-            $table->foreignId('image_id')
-                ->constrained('images')
-                ->cascadeOnDelete();
-
+            
             $table->timestamps();
             $table->string('starships_fr', 50);
             $table->string('starships_en', 50);

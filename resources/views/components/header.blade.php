@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <!-- Logo -->
         <div class="text-xl font-bold text-blue-600">
-            <a href="/"><img src="{{asset('images/Phone/ellipseDifference.png')}}" alt="Logo" class="h-10"></a>
+            <a href="/"><img src="{{asset('images/ellipseDifference.png')}}" alt="Logo" class="h-10"></a>
         </div>
 
         <!-- Navigation -->

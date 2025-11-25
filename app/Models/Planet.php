@@ -29,29 +29,27 @@ class Planet extends Model
 
     // Il faut faire correspondre le nom de ces rubriques  de la méthode selectLocalized aux rubriques de mon field (méthode index de mon controller PlanetController).
     // Méthode statique
-    public static function selectLocalized($id)
-    {
-        $locale = app()->getLocale(); // 'fr' ou 'en'
+    public function scopeSelectLocalized($query)
+{
+    $locale = app()->getLocale();
 
-       
-        return self::select([
-            'id',
-            "name_{$locale} as name", // ✅ correct
-            "description_{$locale} as description",
-            "distance_{$locale} as distance",
-            "duration_{$locale} as duration",
-            'created_at',
-            'updated_at',
-        ])
+    return $query->select([
+        'id',
+        "name_{$locale} as name",
+        "description_{$locale} as description",
+        "distance_{$locale} as distance",
+        "duration_{$locale} as duration",
+        'created_at',
+        'updated_at',
 
-        // Cibler la planête en particulier
-        ->where('id', $id);
+    ]);
     }
 
 
     public function image()
     {
-        return $this->belongsTo(Image::class);
+        return $this->hasOne(Image::class);
+           
     }
 
       

@@ -14,11 +14,6 @@ return new class extends Migration
         Schema::create('planets', function (Blueprint $table) {
             $table->id();
 
-            // La planète appartient à une image → planet.image_id pointe vers images.id
-            $table->foreignId('image_id')
-                ->constrained('images')
-                ->cascadeOnDelete();
-
             $table->timestamps();
             $table->string('name_fr', 7);
             $table->string('name_en', 7);

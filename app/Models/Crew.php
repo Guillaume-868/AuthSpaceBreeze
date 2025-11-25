@@ -67,12 +67,12 @@ class Crew extends Model
     //         );
     // }
 
-    public function resolveRouteBinding($value, $field = null)
-    {
-        return $this->newQuery()       // IMPORTANT pour pouvoir appliquer le scope
-                    ->selectLocalized() 
-                    ->where('id', $value)
-                    ->firstOrFail();
-    }
+    // public function resolveRouteBinding($value, $field = null)
+    // {
+    //     return $this->newQuery()       // IMPORTANT pour pouvoir appliquer le scope
+    //                 ->selectLocalized() 
+    //                 ->where('id', $value)
+    //                 ->firstOrFail();
+    // }
     
 }
