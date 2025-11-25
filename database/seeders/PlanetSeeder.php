@@ -91,6 +91,8 @@ class PlanetSeeder extends Seeder
 
         ];
 
+        // On Crée d'abord toutes les valeurs indépendantes
+
         foreach ($data as $item) {
             // dd($data);
             $planet = Planet::create([
@@ -102,12 +104,13 @@ class PlanetSeeder extends Seeder
                 'distance_en' => $item['distance_en'],
                 'duration_fr' => $item['duration_fr'],
                 'duration_en' => $item['duration_en'],
-                // 'image_id' => null, // on ignore pour l'instant
             ]);
-            dump($planet);
+            // dump($planet);
+
+            // Ensuite on charge les images qui ont pour clef etrangère une planète (Association).
 
             Image::create([
-                'path' => 'image/planets/' . $item['image'], // chemin relatif : images/planets/nom_image.png
+                'path' => 'images/planets/' . $item['image'], // chemin relatif : images/planets/nom_image.png
                 'disk' => 'public',
                 'role' => null, // ou 'cover', 'thumbnail', selon la logique
                 'planet_id'=> $planet->id,
