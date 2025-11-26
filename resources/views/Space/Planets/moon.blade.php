@@ -10,17 +10,19 @@
                 {{__('planet.subtitle')}}
             </h3>
 
-            <img
-                src="{{ Storage::url($planet->image->path ?? 'moon.png') }}"
-                alt="{{ $planet->name }}"
-                class="w-40 h-40 md:w-60 md:h-60 lg:w-[445px] lg:h-[445px] mx-auto" />
+            <div class="flex justify-center items-center w-full lg:w-1/2">
+                <img
+                    src="{{ Storage::url($planet->image->path ?? 'moon.png') }}"
+                    alt="{{ $planet->name }}"
+                    class="w-40 h-40 md:w-60 md:h-60 lg:w-[445px] lg:h-[445px]" />
+            </div>
 
 
         </div>
 
         <!-- Colonne droite : texte -->
         <div class="w-full lg:w-1/2 text-center lg:text-left">
-            <x-planets />
+            <!-- <x-menu-planet /> -->
 
             <h1 class="uppercase text-white text-4xl md:text-8xl mt-10 md:mt-5 text-center lg:text-left"> {{ $planet->name }} </h1>
 
