@@ -57,4 +57,5 @@ require __DIR__.'/auth.php';
 // 👉 Inclusion des routes admin
 require __DIR__.'/admin.php';
 
-
+// 👉 Inclusion des routes admin
+require __DIR__.'/post.php';

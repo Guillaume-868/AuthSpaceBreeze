@@ -39,8 +39,8 @@ class RolesAndPermissionsSeeder extends Seeder
         // admin = Toutes les permissions
         $admin->syncPermissions(Permission::all());
         $planetsmanager->syncPermissions(['posts.view', 'posts.create', 'posts.edit', 'posts.publish']);
-        $crewsmanager->syncPermissions(['posts.view', 'posts.create', 'posts.edit']);
-        $technologiesmanager->syncPermissions(['posts.view',  'posts.create', 'posts.edit']);
+        $crewsmanager->syncPermissions(['posts.view', 'posts.create', 'posts.edit', 'posts.publish']);
+        $technologiesmanager->syncPermissions(['posts.view',  'posts.create', 'posts.edit', 'posts.publish']);
 
         // Rafraîchir le cache des permissions
         app(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
