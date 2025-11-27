@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             PlanetSeeder::class,
             CrewSeeder::class,
             TechnologysSeeder::class,
+            RolesAndPermissionsSeeder::class,
+            UsersSeeder::class,
 
 
             // Ajoute d'autres seeders ici si nécessaire

@@ -11,6 +11,14 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+                <!-- Si Utilisateur = Admin : -->
+                @role('admin')
+                <a href="{{ route('admin.home') }}" class="underline text-indigo-600 m-5">Aller à l’espace admin</a>
+                @endrole
+
+                @can('posts.publish')
+                <p class="m-5">Vous pouvez publier des articles.</p>
+                @endcan
             </div>
         </div>
     </div>

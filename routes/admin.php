@@ -28,3 +28,8 @@ Route::prefix('admin')->group(function () {
 
 // // 👩‍🚀 Routes pour l’équipage
 // Route::resource('crews', CrewsController::class);
+
+
+Route::get('/admin', function () {
+    return 'Zone admin : accès réservé';
+})->middleware(['auth', 'role:admin'])->name('admin.home');
