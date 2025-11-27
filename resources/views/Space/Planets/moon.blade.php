@@ -22,9 +22,9 @@
 
         <!-- Colonne droite : texte -->
         <div class="w-full lg:w-1/2 text-center lg:text-left">
-            <!-- <x-menu-planet /> -->
+            <x-menu-planet />
 
-            <h1 class="uppercase text-white text-4xl md:text-8xl mt-10 md:mt-5 text-center lg:text-left"> {{ $planet->name }} </h1>
+            <h1 class="uppercase text-white text-4xl md:text-8xl mt-10  text-center lg:text-left"> {{ $planet->name }} </h1>
 
             <p class="text-[#D0D6F9] text-base md:text-lg lg:text-xl mt-5 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
                 {{ $planet->description }}
