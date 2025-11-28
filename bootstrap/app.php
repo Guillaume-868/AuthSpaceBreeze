@@ -17,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     
         // Si tu veux définir un alias (optionnel)
+        // Vérifie si l'utilisateur à les droits pour accéder à certaines pages gère l'affichage en fonction des policy (l'Admin peut créer )
         $middleware->alias([
             'setlocale' => \App\Http\Middleware\SetLocale::class,
             'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,

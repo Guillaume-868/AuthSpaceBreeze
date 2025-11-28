@@ -5,6 +5,7 @@ use App\Http\Controllers\WorkSpaceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
 // Home
 Route::get('/', function () {
     return view('welcome');
