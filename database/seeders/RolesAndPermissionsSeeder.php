@@ -15,12 +15,31 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // Permissions liées aux articles 
         // Permet la Lecture, Création, Gestion utilisateurs
+
+        // Adapter
         $perms = [
-            'posts.view',
-            'posts.create',
-            'posts.edit',
-            'posts.delete',
-            'posts.publish',
+            // Permissions planets 
+            'planets.view',
+            'planets.create',
+            'planets.edit',
+            'planets.delete',
+            'planets.publish',
+
+            // Permissions crews
+            'crews.view',
+            'crews.create',
+            'crews.edit',
+            'crews.delete',
+            'crews.publish',
+
+            // Permissions technologies
+            'technologies.view',
+            'technologies.create',
+            'technologies.edit',
+            'technologies.delete',
+            'technologies.publish',
+
+             // Permissions users
             'users.manage',
         ];
 
@@ -38,9 +57,27 @@ class RolesAndPermissionsSeeder extends Seeder
         // Matrice rôles → permissions
         // admin = Toutes les permissions
         $admin->syncPermissions(Permission::all());
-        $planetsmanager->syncPermissions(['posts.view', 'posts.create', 'posts.edit', 'posts.publish']);
-        $crewsmanager->syncPermissions(['posts.view', 'posts.create', 'posts.edit', 'posts.publish']);
-        $technologiesmanager->syncPermissions(['posts.view',  'posts.create', 'posts.edit', 'posts.publish']);
+        $planetsmanager->syncPermissions([
+            'planets.view', 
+            'planets.create', 
+            'planets.edit',  
+            'planets.delete',
+            'planets.publish',
+        ]);
+        $crewsmanager->syncPermissions([
+            'crews.view', 
+            'crews.create', 
+            'crews.edit', 
+            'crews.delete',
+            'crews.publish', 
+            ]);
+        $technologiesmanager->syncPermissions([ 
+            'technologies.view',
+            'technologies.create',
+            'technologies.edit',
+            'technologies.delete',
+            'technologies.publish',
+        ]);
 
         // Rafraîchir le cache des permissions
         app(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();

@@ -56,12 +56,12 @@ class UsersSeeder extends Seeder
             $newUser->syncRoles([$user['role']]);
         }
 
-        foreach ($users as $u) {
+        // foreach ($users as $u) {
     
-            //...
+        //     //...
             
-            Post::factory(6)->for($newUser)->create();   
-        }
+        //     Post::factory(6)->for($newUser)->create();   
+        // }
 
     }
 }
